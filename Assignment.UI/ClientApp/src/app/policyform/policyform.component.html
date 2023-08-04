@@ -1,0 +1,197 @@
+
+<form [formGroup]="policyForm" class="card-body">
+    <div *ngIf="type=='view'">
+        <h1 style="text-align: center;">View Policy</h1>
+      </div>
+      <div *ngIf="policyid>0 && type=='edit';">
+        <h1 style="text-align: center;">Edit Policy</h1> 
+      </div> 
+      <div *ngIf="policyid==0 && type=='create';">
+        <h1 style="text-align: center;">Create Policy</h1>
+      </div> 
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Title</label>
+            <input title="Title" type="text" formControlName="title" class="form-control"
+                 />
+          
+        </div>
+        <div class="mb-3 col">
+            <label class="form-label">Description</label>
+            <input title="Description" type="text" formControlName="description" class="form-control"
+               />
+         
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Start Date</label>
+            <input title="startDate" type="text" format="{dd-MMM-yyyy}" formControlName="startDate" class="form-control"
+               />
+           
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col">
+                <label class="form-label">End Date</label>
+                <input title="endDate" type="text" format="{dd-MMM-yyyy}" formControlName="endDate" class="form-control"
+                   />
+               
+            </div>
+        </div>
+
+        <div class="mb-3 col">
+            <label class="form-label">Insured Amount</label>
+            <input title="insuredAmount" type="number" formControlName="insuredAmount" class="form-control"
+                />
+          
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Premium</label>
+            <input title="premium" type="number" formControlName="premium" class="form-control"
+                />
+           
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Duration</label>
+            <input title="duration" type="number" formControlName="duration" class="form-control"
+               />
+          
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Insurer Name</label>
+            <input title="insurerName" type="text" formControlName="insurerName" class="form-control"
+                />
+           
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Insurer Holder Age</label>
+            <input title="insurerHolderAge" type="number" formControlName="insurerHolderAge" class="form-control"
+                />
+         
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- <div class="form-group">
+
+            <label class="control-label col-sm-2" for="policyTypeId">typesofPolicy</label>
+
+            <div class="col-sm-10">
+
+                <select class="form field select" formControlName="policyTypeId" style="width:50%" #sel
+                    (change)="onChange($event.currentTarget)">
+
+                    <option *ngFor="let policyTypeId of types" [ngValue]="policyTypeId.key">{{policyTypeId.value}}
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div> -->
+        <div class="mb-3 col">
+            <label class="form-label">Policy Type</label>
+            <select id="policytypeId" name="policytypeId" formControlName="policyTypeId" >
+                <option value="">Select Policy Type</option>
+                <option value="1">Personal</option>
+                <option value="2">Vehicle</option>
+                <option value="3">Asset</option>
+              </select>
+            
+        </div>
+        <!-- <div class="x">
+              <label for="Policy Type">Policy Type</label>
+              <select id="policytypeId" name="policytypeId" formControlName="policytypeId" >
+                <option value="" >Select Policy Type</option>
+                <option value="1"  >Personal</option>
+                <option value="2" >Vehicle</option>
+                <option value="3" >Asset</option>
+              </select>
+           
+          </div> -->
+    </div>
+
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Coverage</label>
+            <input title="coverage" type="number" formControlName="coverage" class="form-control"
+                />
+          
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Vehicle Number</label>
+            <input title="vehicleNumber" type="text" formControlName="vehicleNumber" class="form-control"
+                />
+         
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Vehicle Model</label>
+            <input title="vehicleModel" type="text" formControlName="vehicleModel" class="form-control"
+                />
+          
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">House Address</label>
+            <input title="houseAddress" type="text" formControlName="houseAddress" class="form-control"
+               />
+          
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Status Of Policy</label>
+            <select id="statusOfPolicy" name="statusOfPolicy" formControlName="statusOfPolicy">
+                <option value="">Select Status</option>
+                <option value="Pending Approval">Pending Approval</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+
+        </div>
+    </div>
+
+
+
+    <div class="row btns-group1">
+
+        <a (click)="Back()" class="btn btn-next width-50 ml-auto">&nbsp;Back</a> 
+        <div *ngIf="type=='view'">
+          <a routerLink="/edit/{{policyDetail.policyId}}"><button type="button" class="btn btn-outline-warning"
+            >Edit</button></a>
+        </div>
+        <div *ngIf="policyid>0 && type=='edit'">
+          <a (click)="updatePolicy()" class="btn">Update</a>
+        </div> 
+        <div *ngIf="policyid==0 && type=='create'">
+          <a (click)="createPolicy()" class="btn">Submit</a>
+        </div>
+      </div>
+</form>
+<div *ngIf="loading" class="text-center m-5">
+    <span class="spinner-border spinner-border-lg align-center"></span>
+</div>

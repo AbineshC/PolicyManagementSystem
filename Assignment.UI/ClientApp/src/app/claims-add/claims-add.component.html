@@ -1,0 +1,80 @@
+<h1>{{title}}</h1>
+<form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">PolicyId</label>
+            <input title="PolicyId" type="number" formControlName="policyId" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.policyId.errors }" />
+            <div *ngIf="submitted && f.policyId.errors" class="invalid-feedback">
+                <div *ngIf="f.policyId.errors.required">PolicyId is required</div>
+            </div>
+        </div>
+        <div class="mb-3 col">
+            <label class="form-label">Claim Amount</label>
+            <input title="claimAmount" type="number" formControlName="claimAmount" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.claimAmount.errors }" />
+            <div *ngIf="submitted && f.claimAmount.errors" class="invalid-feedback">
+                <div *ngIf="f.claimAmount.errors.required">Claim Amount is required</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Claim Reason</label>
+            <input title="claimReason" type="text" formControlName="claimReason" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.claimReason.errors }" />
+            <div *ngIf="submitted && f.claimReason.errors" class="invalid-feedback">
+                <div *ngIf="f.claimReason.errors.required">Claim Reason is required</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col">
+                <label class="form-label">Claim Description</label>
+                <input title="claimDescription" type="text"  formControlName="claimDescription" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.claimDescription.errors }" />
+                <div *ngIf="submitted && f.claimDescription.errors" class="invalid-feedback">
+                    <div *ngIf="f.claimDescription.errors.required">Claim Description is required</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3 col">
+            <label class="form-label">Claim Date</label>
+            <input title="claimDate" type="string" formControlName="claimDate" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.claimDate.errors }" />
+            <div *ngIf="submitted && f.claimDate.errors" class="invalid-feedback">
+                <div *ngIf="f.claimDate.errors.required">Claim Date is required</div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Status Of Claim</label>
+            <select id="statusOfClaim" name="statusOfClaim" formControlName="statusOfClaim">
+                <option value="">Select Status</option>
+                <option value="Pending Approval">Pending Approval</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+
+        </div>
+    </div>
+
+
+
+    <div class="mb-3">
+        <button type="submit" [disabled]="submitting" class="btn btn-primary">
+            <span *ngIf="submitting" class="spinner-border spinner-border-sm me-1"></span>
+            Save
+        </button>
+        <a routerLink="" class="btn btn-link">Cancel</a>
+    </div>
+</form>
+<div *ngIf="loading" class="text-center m-5">
+    <span class="spinner-border spinner-border-lg align-center"></span>
+</div>

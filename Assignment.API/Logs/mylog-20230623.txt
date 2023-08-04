@@ -1,0 +1,5 @@
+2023-06-23T11:22:57.5921661+05:30  [INF] Now listening on: "https://localhost:5001" (d826f4b8)
+2023-06-23T11:22:57.5973535+05:30  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2023-06-23T11:22:57.6122386+05:30  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2023-06-23T11:22:57.6142770+05:30  [INF] Hosting environment: "Development" (c3307c92)
+2023-06-23T11:22:57.6155233+05:30  [INF] Content root path: "C:\Users\abinesh.chellapandi\UpSkillTraining\Soureccode\Aspire.Assignment_V1\Aspire.Assignment\Assignment.API" (b5d60022)
